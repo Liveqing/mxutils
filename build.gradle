@@ -2,6 +2,10 @@ apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'com.jfrog.bintray'
 
+// 这个version是区分library版本的，因此当我们需要更新library时记得修改这个version
+// 这个version影响后面的引用
+version = "1.0.0"
+
 android {
     compileSdkVersion 24
     buildToolsVersion "24.0.0"
@@ -35,9 +39,9 @@ dependencies {
     compile 'com.android.support:appcompat-v7:24.1.1'
 }
 
-def siteUrl = 'https://github.com/Liveqing/MxUtils'   // 项目的主页
-def gitUrl = 'git@github.com:Liveqing/MxUtils.git'   // Git仓库的url
-group = "com.moxian.mxlibrary.utils"            // Maven Group ID for the artifact，一般填你唯一的包名
+def siteUrl = 'https://github.com/Liveqing/mxutils.git'   // 项目的主页
+def gitUrl = 'git@github.com:Liveqing/mxutils.git'   // Git仓库的url
+group = "com.moxian.librarys.mxutils"            // Maven Group ID for the artifact，一般填你唯一的包名
 install {
     repositories.mavenInstaller {
         // This generates POM.xml with proper parameters
@@ -56,8 +60,8 @@ install {
                 }
                 developers {
                     developer {
-                        id 'Qingger'        //填写的一些基本信息
-                        name 'li.qing'
+                        id 'liqing'        //填写的一些基本信息
+                        name 'liqing'
                         email 'li0905203@gmail.com'
                     }
                 }
@@ -94,7 +98,7 @@ bintray {
     configurations = ['archives']
     pkg {
         repo = "maven"
-        name = "MxUtils"    //发布到JCenter上的项目名字
+        name = "mxutils"    //发布到JCenter上的项目名字
         websiteUrl = siteUrl
         vcsUrl = gitUrl
         licenses = ["Apache-2.0"]
